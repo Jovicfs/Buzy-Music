@@ -1,3 +1,9 @@
+ const express = require('express');
+ const mongoose = require('mongoose');
+ const app = express();
+ const router = express.Router();
+ app.use(express.json());
+ 
 const artistaSchema = new mongoose.Schema({
     nome: {
       type: String,
