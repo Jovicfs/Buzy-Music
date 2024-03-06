@@ -1,0 +1,13 @@
+.music-list {
+    width: 100%;
+    height: 400px;
+    overflow-y: auto;
+    position: absolute;
+    top: 30vh;
+    background-color: red;
+  }
+  .scroll-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
