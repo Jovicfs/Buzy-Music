@@ -1,0 +1,16 @@
+.music-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow-y: auto;
+    position: absolute;
+    top: 30vh;
+    background-color: #282850;
+  }
+  .scroll-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
