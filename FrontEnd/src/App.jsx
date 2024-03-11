@@ -6,11 +6,15 @@ import Nav from './components/Nav/Nav.jsx'
 function App() {
   return (
     <div className="Main-App">
-      <Header/>
-      <MusicList/>
-      <Nav/>
-      
-    </div>
+       <Header/>
+         <Nav/>
+           <div className="containerMusic">
+            <MusicList id='section-um'/>
+            <MusicList id='section-dois'/>
+            <MusicList id='section-tres'/>
+            <MusicList id='section-quatro'/>
+          </div>
+   </div> 
     
   )
 } 

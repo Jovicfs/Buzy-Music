@@ -1,6 +1,5 @@
 
 import './MusicCard.css';
-
 const MusicCard = ({ title, artist, imageUrl }) => {
   return (
     <div className="music-card">
