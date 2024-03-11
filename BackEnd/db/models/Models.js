@@ -3,8 +3,7 @@
  const app = express();
  app.use(express.json());
  
- export default function models (){
-  
+
   const artistaSchema = new mongoose.Schema({
     nome: {
       type: String,
@@ -68,9 +67,7 @@
   });
   
   const Musica = mongoose.model('Musica', musicaSchema);
-  
-  
- }
  
  
+ export{Artista,Album,Musica};
  

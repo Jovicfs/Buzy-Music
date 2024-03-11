@@ -1,39 +1,62 @@
-  import models from "../models/Models";
+  import {Artista,Album,Musica} from "../db/models/Models";
   
-  const router = express.Router();
-
-
-
-
-router.get('/artistas', async (req, res) => {
+  app.get('/artists', async (req, res) => {
     try {
-      const artistas = await Artista.find();
-      res.json(artistas);
+      const artists = await Artista.find();
+      res.json(artists);
     } catch (error) {
-      res.status(500).json({ message: 'não foi possível se conectar' });
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   });
   
-
-
-router.get('/albums',async(req,res)=>{
-    try{
-      const albums = await Album.find();
-      res.json(albums)
-    }
-    catch (error){
-      res.status(500).json({message: 'não foi possivel se conectar'});
+ 
+  app.post('/artists', async (req, res) => {
+    try {
+      const newArtist = await Artista.create(req.body);
+      res.json(newArtist);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
     }
   });
   
-  router.get('/musica',async (req,res)=>{
-     try{
-      const musicas = await Musica.find();
-      res.json(musicas)
-     }
-     catch(error){
-      res.status(500).json({message: 'não foi possivel se conectar'});
-     }
+ 
+  app.get('/albums', async (req, res) => {
+    try {
+      const albums = await Album.find().populate('artista');
+      res.json(albums);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+ 
+  app.post('/albums', async (req, res) => {
+    try {
+      const newAlbum = await Album.create(req.body);
+      res.json(newAlbum);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+ 
+  app.get('/songs', async (req, res) => {
+    try {
+      const songs = await Musica.find().populate('artista').populate('album');
+      res.json(songs);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+ 
+  app.post('/songs', async (req, res) => {
+    try {
+      const newSong = await Musica.create(req.body);
+      res.json(newSong);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   });
   
   
